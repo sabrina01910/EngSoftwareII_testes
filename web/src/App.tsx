@@ -4,6 +4,7 @@ import './App.css';
 
 import Index from './Index';
 import Sobre from './Sobre';
+import Carrinho from './Carrinho';
 
 export default function App() {
   return (
@@ -26,6 +27,12 @@ export default function App() {
           <NavLink to="/sobre" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
             Sobre Nós
           </NavLink>
+          <NavLink
+            to="/carrinho"
+            className={({ isActive }) => 'nav-link ${isActive ? 'active' : ''}'}
+          >
+          Carrinho
+        </NavLink>
         </nav>
 
         {/* Conteúdo Dinâmico */}
@@ -33,6 +40,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/sobre" element={<Sobre />} />
+            <Route path="/carrinho" element={<Carrinho />} />
           </Routes>
         </main>
       </div>
