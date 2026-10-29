@@ -51,19 +51,21 @@ export default function Carrinho() {
               })}</p>
 
               <label>
-                Quantidade:{' '}
-                <input
-                  type="number"
-                  min="0"
-                  value={item.quantidade}
-                  onChange={e => {
-                    const quantidade = Number(e.target.value);
-                    if (Number.isInteger(quantidade) && quantidade >= 0) {
-                      alterarQuantidade(item.id, quantidade);
-                    }
-                  }}
-                />
-              </label>
+  Quantidade:{' '}
+  <input
+    type="number"
+    min="1"
+    step="1"
+    value={item.quantidade}
+    onChange={e => {
+      const quantidade = e.currentTarget.valueAsNumber;
+
+      if (Number.isInteger(quantidade) && quantidade >= 1) {
+        alterarQuantidade(item.id, quantidade);
+      }
+    }}
+  />
+</label>
 
               <button onClick={() => removerProduto(item.id)}>
                 Remover
