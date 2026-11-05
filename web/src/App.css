@@ -92,6 +92,7 @@ body {
   text-transform: uppercase;
   background: linear-gradient(90deg, #ffffff, #d8b4fe);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -567,4 +568,240 @@ body {
   .auth-card h1 {
     font-size: 1.55rem;
   }
+}
+
+.carrinho-container {
+  min-height: 85vh;
+  padding: 55px 8%;
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(126, 34, 206, 0.13),
+      transparent 55%
+    ),
+    #0f0a1a;
+}
+
+.carrinho-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  color: #ffffff;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.carrinho-titulo svg {
+  color: #c084fc;
+  filter: drop-shadow(0 0 10px rgba(192, 132, 252, 0.6));
+}
+
+
+.carrinho-card {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 30px;
+  background: linear-gradient(145deg, #1c1230, #110b1e);
+  border: 1px solid #8534c7;
+  border-radius: 22px;
+  box-shadow:
+    0 0 25px rgba(126, 34, 206, 0.15),
+    0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+
+.carrinho-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 25px;
+  margin-bottom: 20px;
+  background: rgba(36, 20, 58, 0.75);
+  border: 1px solid #492466;
+  border-radius: 16px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.carrinho-item:hover {
+  border-color: #c084fc;
+  transform: translateY(-3px);
+}
+
+.carrinho-info h2 {
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.carrinho-info p {
+  color: #c084fc;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.carrinho-controles {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.carrinho-controles label {
+  color: #e9d5ff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.carrinho-controles input {
+  width: 75px;
+  padding: 10px;
+  text-align: center;
+  color: #ffffff;
+  background: #10091b;
+  border: 1px solid #7135a0;
+  border-radius: 20px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.carrinho-controles input:focus {
+  border-color: #c084fc;
+  box-shadow: 0 0 0 3px rgba(192, 132, 252, 0.15);
+}
+
+
+.carrinho-remover {
+  padding: 10px 16px;
+  color: #e9d5ff;
+  background: transparent;
+  border: 1px solid #8b35bd;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.carrinho-remover:hover {
+  color: #ffffff;
+  background: #7e22ce;
+  border-color: #c084fc;
+}
+
+
+.carrinho-subtotal {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+
+.carrinho-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 25px;
+  margin-top: 30px;
+  background: #1c1230;
+  border: 1px solid #7135a0;
+  border-radius: 15px;
+}
+
+.carrinho-total h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.carrinho-total strong {
+  color: #c084fc;
+  font-size: 2rem;
+}
+
+
+.carrinho-finalizar {
+  width: 100%;
+  padding: 17px;
+  margin-top: 15px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #7e22ce, #a855f7);
+  border: 1px solid #c084fc;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(126, 34, 206, 0.3);
+  transition: 0.3s;
+}
+
+.carrinho-finalizar:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.15);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);
+}
+
+
+.carrinho-vazio {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 45px;
+  color: #d8b4fe;
+  background: #1c1230;
+  border: 1px solid #7135a0;
+  border-radius: 18px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+
+@media (max-width: 650px) {
+  .carrinho-container {
+    padding: 35px 5%;
+  }
+
+  .carrinho-titulo {
+    font-size: 2rem;
+    gap: 10px;
+  }
+
+  .carrinho-titulo svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .carrinho-card {
+    padding: 15px;
+  }
+
+  .carrinho-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px;
+  }
+
+  .carrinho-subtotal {
+    align-self: flex-end;
+  }
+
+  .carrinho-total strong {
+    font-size: 1.5rem;
+  }
+
+  .carrinho-controles {
+    gap: 10px;
+  }
+}
+.carrinho-imagem {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #7b2cbf;
+  flex-shrink: 0;
 }

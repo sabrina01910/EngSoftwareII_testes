@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { buscarUsuarios } from './usuarios';
+import { buscarUsuarios, gerarHashSenha } from './usuarios';
 
 type LoginProps = {
   onLogin: () => void;
@@ -11,7 +11,7 @@ export default function Login({ onLogin }: LoginProps) {
   const [senha, setSenha] = useState('');
   const [mensagem, setMensagem] = useState('');
 
-  function entrar(e: React.FormEvent<HTMLFormElement>) {
+  async function entrar(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     if (!email.trim() || !senha) {
@@ -19,12 +19,14 @@ export default function Login({ onLogin }: LoginProps) {
       return;
     }
 
-    const usuarios = buscarUsuarios();
+   const usuarios = buscarUsuarios();
+
+const senhaHash = await gerarHashSenha(senha);
 
 const usuarioEncontrado = usuarios.find(
   usuario =>
     usuario.email.toLowerCase() === email.trim().toLowerCase() &&
-    usuario.senha === senha
+    usuario.senhaHash === senhaHash
 );
 
 if (!usuarioEncontrado) {

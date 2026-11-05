@@ -9,7 +9,7 @@ export default function Cadastro() {
   const [confirmarSenha, setConfirmarSenha] = useState('');
   const [mensagem, setMensagem] = useState('');
 
-  function cadastrar(e: React.FormEvent<HTMLFormElement>) {
+  async function cadastrar(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     if (senha.length < 6) {
@@ -22,7 +22,7 @@ export default function Cadastro() {
       return;
     }
 
-    const cadastrado = salvarUsuario({
+    const cadastrado = await salvarUsuario({
       nome,
       email: email.trim(),
       senha,

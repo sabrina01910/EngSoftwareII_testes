@@ -3,6 +3,7 @@ export interface ItemCarrinho {
   nome: string;
   preco: number;
   quantidade: number;
+  imagem: string;
 }
 
 const CHAVE_CARRINHO = 'docevida_carrinho';
@@ -32,7 +33,11 @@ export function adicionarProduto(
   const novoCarrinho = existente
     ? carrinhoAtual.map(item =>
         item.id === produto.id
-          ? { ...item, quantidade: item.quantidade + 1 }
+          ? {
+              ...item,
+              imagem: produto.imagem,
+              quantidade: item.quantidade + 1
+            }
           : item
       )
     : [...carrinhoAtual, { ...produto, quantidade: 1 }];
